@@ -1,0 +1,26 @@
+.messagesBox {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+
+}
+
+.dialogColumn {
+
+}
+
+.dialog {
+
+}
+
+.active {
+  color: #b4275d;
+}
+
+.messagesColumn {
+
+}
+
+.message {
+
+}

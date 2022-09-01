@@ -1,0 +1,22 @@
+.item {
+    margin-top: 15px;
+    color: #361a1a;
+    column-gap: 10px;
+    display: flex;
+
+}
+
+.item img {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+    border-style: double;
+}
+
+.usersDialogs {
+    margin-top: 12px;
+}
+
+.dialog {
+    text-decoration: none;
+}

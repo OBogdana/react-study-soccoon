@@ -1,0 +1,18 @@
+.nav {
+    grid-area: n;
+    background: #925479;
+    padding: 10px
+}
+
+.item {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.active {
+    color: black;
+    font-size: large;
+    font-style: italic;
+    text-decoration: none;
+
+}
