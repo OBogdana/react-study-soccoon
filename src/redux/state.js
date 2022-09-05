@@ -24,12 +24,14 @@ let state = {
     profilePage: {
         posts: [
             {
+                id: 1,
                 ava: "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",
                 message: "AAAAAAAAAAAAAAAAAA-post",
                 likeCount: 9,
             },
 
             {
+                id: 2,
                 ava: "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
                 message: "BBBBBBBBBBBBBBBBBB-post",
                 likeCount: 3,
@@ -37,6 +39,16 @@ let state = {
         ],
     },
 
+}
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 3,
+        ava: "",
+        message: postMessage,
+        likeCount: 0,
+    };
+    state.profilePage.posts.push(newPost);
 }
 
 export default state;
