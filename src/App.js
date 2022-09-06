@@ -19,7 +19,7 @@ const App = (props) => {
                 <Navbar/>
                 <div className='app-content-box'>
                     <Routes>
-                        <Route path='/profile' element={<Profile data={props.state.profilePage} />} />
+                        <Route path='/profile' element={<Profile data={props.state.profilePage} addPost={props.addPost} />} />
                         <Route path='/messages' element={<Messages data={props.state.messagesPage} />} />
                         <Route path='/news' element={<News />} />
                         <Route path='/music' element={<Music />} />
@@ -33,3 +33,5 @@ const App = (props) => {
 
 
 export default App;
+
+//Test commit
