@@ -1,3 +1,5 @@
+import {rerenderPage} from "../render";
+
 let state = {
     messagesPage: {
         dialogs: [
@@ -49,6 +51,7 @@ export let addPost = (postMessage) => {
         likeCount: 0,
     };
     state.profilePage.posts.push(newPost);
+    rerenderPage(state);
 }
 
 export default state;
