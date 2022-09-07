@@ -39,19 +39,27 @@ let state = {
                 likeCount: 3,
             },
         ],
+        newPostText: 'some text',
     },
 
 }
 
-export let addPost = (postMessage) => {
+window.state = state;
+
+export let addPost = () => {
     let newPost = {
         id: 3,
         ava: "",
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likeCount: 0,
     };
     state.profilePage.posts.push(newPost);
+    state.profilePage.newPostText = '';
     rerenderPage(state);
 }
 
+export let updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerenderPage(state);
+}
 export default state;
