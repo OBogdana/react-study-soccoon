@@ -65,14 +65,16 @@ export const addPost = () => {
     };
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderPage(state);
+    rerenderPage();
 }
 
 export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderPage(state);
+    rerenderPage();
 }
 
-// export const
+export const subscribe = (observer) => {
+    rerenderPage = observer;
+}
 
 export default state;
