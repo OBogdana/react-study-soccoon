@@ -1,4 +1,6 @@
-import {rerenderPage} from "../render";
+let rerenderPage = () => {
+    console.log('Видалили файл render.js');
+}
 
 let state = {
     messagesPage: {
@@ -11,8 +13,16 @@ let state = {
             },
             {id: 12, user: 'OWL', ava: "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",},
             {id: 13, user: 'COW', ava: "https://static.gazeta.ua/img/cache/preview/436/436531_w_300.jpg?v=0",},
-            {id: 14, user: 'KAT', ava: "https://geek-point.com.ua/image/cache//data/stiker/ukraine/12/e1ff19974ced1b694d932ca1148762fc-600x500.jpg",},
-            {id: 15, user: 'BEAVER', ava: "https://i2-prod.dailystar.co.uk/incoming/article27729935.ece/ALTERNATES/s615b/0_North-American-Beaver.jpg",},
+            {
+                id: 14,
+                user: 'KAT',
+                ava: "https://geek-point.com.ua/image/cache//data/stiker/ukraine/12/e1ff19974ced1b694d932ca1148762fc-600x500.jpg",
+            },
+            {
+                id: 15,
+                user: 'BEAVER',
+                ava: "https://i2-prod.dailystar.co.uk/incoming/article27729935.ece/ALTERNATES/s615b/0_North-American-Beaver.jpg",
+            },
             {id: 16, user: 'CROW', ava: "https://www.volynnews.com/files/posts/2019/07-26/crows-08.jpg",},
         ],
 
@@ -46,7 +56,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {
         id: 3,
         ava: "",
@@ -55,11 +65,16 @@ export let addPost = () => {
     };
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderPage(state);
+    rerenderPage();
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerenderPage(state);
+    rerenderPage();
 }
+
+export const subscribe = (observer) => {
+    rerenderPage = observer;
+}
+
 export default state;
