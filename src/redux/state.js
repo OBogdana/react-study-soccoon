@@ -49,30 +49,34 @@ let store = {
             newPostText: 'some text',
         },
     },
-    getState() {
-        return this._state;
-    },
     _rerenderPage() {
         console.log('Видалили файл render.js');
     },
-    addPost() {
-        let newPost = {
-            id: 3,
-            ava: "",
-            message: this._state.profilePage.newPostText,
-            likeCount: 0,
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._rerenderPage();
-    },
-    updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._rerenderPage();
-    },
+
     subscribe(observer) {
         this._rerenderPage = observer;
     },
+    getState() {
+        return this._state;
+    },
+
+    dispatch(action) {
+        if(action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                ava: "https://emojigraph.org/media/mozilla/question-mark_2753.png",
+                message: this._state.profilePage.newPostText,
+                likeCount: 0,
+            };
+            this._state.profilePage.posts.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._rerenderPage();
+        } else if(action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText =  action.newText;
+            this._rerenderPage();
+        }
+    }
+
 }
 
 export default store;
