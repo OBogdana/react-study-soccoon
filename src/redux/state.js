@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
+
 let store = {
     _state: {
         messagesPage: {
@@ -61,7 +65,7 @@ let store = {
     },
 
     dispatch(action) {
-        if(action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 3,
                 ava: "https://emojigraph.org/media/mozilla/question-mark_2753.png",
@@ -71,13 +75,18 @@ let store = {
             this._state.profilePage.posts.push(newPost);
             this._state.profilePage.newPostText = '';
             this._rerenderPage();
-        } else if(action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText =  action.newText;
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = action.newText;
             this._rerenderPage();
         }
     }
 
 }
+
+
+export const addPostActionCreator = () => ({type: ADD_POST,});
+
+export const onPostChangeActionCreator = (post) => ({type: UPDATE_NEW_POST_TEXT, newText: post,});
 
 export default store;
 window.state = store;

@@ -1,3 +1,21 @@
+.userBox {
+
+}
+
 .infoBox {
     padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 30px;
 }
+
+.infoBox img {
+    border-radius: 5%;
+    border-style: solid;
+}
+
+.textBox {
+    font: bold 30px "Arial Narrow";
+
+}
+
