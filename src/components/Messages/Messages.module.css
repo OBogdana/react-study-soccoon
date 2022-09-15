@@ -5,22 +5,27 @@
 
 }
 
-.dialogColumn {
-
-}
-
-.dialog {
-
-}
-
-.active {
-  color: #b4275d;
-}
-
 .messagesColumn {
 
 }
 
 .message {
+    padding: 7px;
+    margin: 5px;
+    height: 50px;
+    width: 700px;
+    border-radius: 7px;
+    border-style: inset;
+    background-color: #fdf9f3;
+}
 
+.button {
+    margin: 5px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: "Bookman Old Style";
+    color: #fdf9f3;
+    background-color: #940f4b;
+    border-color: #361a1a;
 }

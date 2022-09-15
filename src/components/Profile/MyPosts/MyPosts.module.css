@@ -1,3 +1,23 @@
 .postsBox {
     padding: 15px;
 }
+
+.textarea {
+    padding: 10px;
+    height: 100px;
+    width: 700px;
+    border-radius: 7px;
+    background-color: #fdf9f3;
+
+}
+
+.button {
+    margin: 5px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: "Bookman Old Style";
+    color: #fdf9f3;
+    background-color: #940f4b;
+    border-color: #361a1a;
+}
