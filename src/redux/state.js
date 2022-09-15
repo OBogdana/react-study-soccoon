@@ -1,9 +1,29 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
+const SEND_MESSAGE = 'SEND-MESSAGE';
 
 
 let store = {
     _state: {
+        profilePage: {
+            posts: [
+                {
+                    id: 1,
+                    ava: "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",
+                    message: "AAAAAAAAAAAAAAAAAA-post",
+                    likeCount: 9,
+                },
+
+                {
+                    id: 2,
+                    ava: "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+                    message: "BBBBBBBBBBBBBBBBBB-post",
+                    likeCount: 3,
+                },
+            ],
+            newPostBody: 'What do you say?',
+        },
         messagesPage: {
             dialogs: [
                 {id: 10, user: 'FOX', ava: "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",},
@@ -33,25 +53,9 @@ let store = {
                 {id: 3, message: 'Kar'},
                 {id: 4, message: 'Whaaaat?'},
             ],
+            newMessageBody: '',
         },
-        profilePage: {
-            posts: [
-                {
-                    id: 1,
-                    ava: "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",
-                    message: "AAAAAAAAAAAAAAAAAA-post",
-                    likeCount: 9,
-                },
 
-                {
-                    id: 2,
-                    ava: "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
-                    message: "BBBBBBBBBBBBBBBBBB-post",
-                    likeCount: 3,
-                },
-            ],
-            newPostText: 'some text',
-        },
     },
     _rerenderPage() {
         console.log('Видалили файл render.js');
@@ -69,15 +73,23 @@ let store = {
             let newPost = {
                 id: 3,
                 ava: "https://emojigraph.org/media/mozilla/question-mark_2753.png",
-                message: this._state.profilePage.newPostText,
+                message: this._state.profilePage.newPostBody,
                 likeCount: 0,
             };
             this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
+            this._state.profilePage.newPostBody = '';
             this._rerenderPage();
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
+            this._state.profilePage.newPostBody = action.newText;
             this._rerenderPage();
+        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+            this._state.messagesPage.newMessageBody = action.body;
+            this._rerenderPage(this._state);
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.messagesPage.newMessageBody;
+            this._state.messagesPage.newMessageBody = ' ';
+            this._state.messagesPage.messages.push({id: 5, message: body});
+            this._rerenderPage(this._state);
         }
     }
 
@@ -85,8 +97,9 @@ let store = {
 
 
 export const addPostActionCreator = () => ({type: ADD_POST,});
-
 export const onPostChangeActionCreator = (post) => ({type: UPDATE_NEW_POST_TEXT, newText: post,});
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE,});
+export const updateNewMessageBodyActionCreator = (messageBody) => ({type: UPDATE_NEW_MESSAGE_BODY, body: messageBody,});
 
 export default store;
 window.state = store;
