@@ -1,5 +1,4 @@
 import React from "react";
-// import cs from "./../Messages.module.css";
 import cs from "./DialogItem.module.css";
 import {NavLink} from "react-router-dom";
 
