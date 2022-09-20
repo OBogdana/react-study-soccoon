@@ -1,7 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
-const SEND_MESSAGE = 'SEND-MESSAGE';
+import profileReducer from "./profileReducer";
+import messagesReducer from "./messagesReducer";
 
 
 let store = {
@@ -58,7 +56,7 @@ let store = {
 
     },
     _rerenderPage() {
-        console.log('Видалили файл render.js');
+        console.log('something has changed^_^');
     },
 
     subscribe(observer) {
@@ -69,37 +67,13 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 3,
-                ava: "https://emojigraph.org/media/mozilla/question-mark_2753.png",
-                message: this._state.profilePage.newPostBody,
-                likeCount: 0,
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostBody = '';
-            this._rerenderPage();
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostBody = action.newText;
-            this._rerenderPage();
-        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            this._state.messagesPage.newMessageBody = action.body;
-            this._rerenderPage(this._state);
-        } else if (action.type === SEND_MESSAGE) {
-            let body = this._state.messagesPage.newMessageBody;
-            this._state.messagesPage.newMessageBody = ' ';
-            this._state.messagesPage.messages.push({id: 5, message: body});
-            this._rerenderPage(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+
+        this._rerenderPage(this._state);
+
     }
-
 }
-
-
-export const addPostActionCreator = () => ({type: ADD_POST,});
-export const onPostChangeActionCreator = (post) => ({type: UPDATE_NEW_POST_TEXT, newText: post,});
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE,});
-export const updateNewMessageBodyActionCreator = (messageBody) => ({type: UPDATE_NEW_MESSAGE_BODY, body: messageBody,});
 
 export default store;
 window.state = store;
