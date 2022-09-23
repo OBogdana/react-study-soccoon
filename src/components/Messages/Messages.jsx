@@ -2,24 +2,22 @@ import React from "react";
 import cs from "./Messages.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import MessageItem from "./MessageItem/MessageItem";
-import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../../redux/messagesReducer";
 
 
 const Messages = (props) => {
 
     let dialogsElements = props.messagesPage.dialogs.map(dialog => <DialogItem user={dialog.user} id={dialog.id}
-                                                                       ava={dialog.ava}/>);
+                                                                               ava={dialog.ava}/>);
     let messagesElements = props.messagesPage.messages.map(message => <MessageItem message={message.message}/>);
 
     let newMessageBody = props.messagesPage.newMessageBody;
 
     let sendMessageClick = () => {
-        props.dispatch(sendMessageActionCreator())
-
+        props.sendMessage();
     }
     let newMessageChange = (event) => {
         let messageBody = event.target.value;
-        props.dispatch(updateNewMessageBodyActionCreator(messageBody))
+        props.updateNewMessageBody(messageBody);
     }
 
     return (
@@ -33,7 +31,8 @@ const Messages = (props) => {
                 </div>
                 <div>
                     <div>
-                        <textarea value={newMessageBody} onChange={newMessageChange} className={cs.message} placeholder='Напиши повідомлення'/>
+                        <textarea value={newMessageBody} onChange={newMessageChange} className={cs.message}
+                                  placeholder='Напиши повідомлення'/>
                     </div>
                     <div>
                         <button className={cs.button} onClick={sendMessageClick}>SEND</button>
