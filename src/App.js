@@ -10,15 +10,15 @@ import {Route, Routes} from "react-router-dom";
 import MessagesContainer from "./components/Messages/MessagesContainer";
 
 
-const App = (props) => {
+const App = () => {
     return (
         <div className='app-wrapper'>
             <Header/>
             <Navbar/>
             <div className='app-content-box'>
                 <Routes>
-                    <Route path='/profile' element={<Profile store={props.store}/>}/>
-                    <Route path='/messages' element={<MessagesContainer store={props.store}/>}/>
+                    <Route path='/profile' element={<Profile />}/>
+                    <Route path='/messages' element={<MessagesContainer />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>
