@@ -3,29 +3,6 @@ import {sendMessageActionCreator, updateNewMessageBodyActionCreator} from "../..
 import Messages from "./Messages";
 import {connect} from "react-redux";
 
-
-// const MessagesContainer = (props) => {
-//
-//     return (
-//         <StoreContext.Consumer>
-//             {
-//                 (store) => {
-//                 let state = store.getState();
-//
-//                 let onSendMessageClick = () => store.dispatch(sendMessageActionCreator());
-//
-//                 let onNewMessageChange = (messageBody) => {
-//                     store.dispatch(updateNewMessageBodyActionCreator(messageBody));
-//                 }
-//                 return <Messages
-//                     updateNewMessageBody={onNewMessageChange}
-//                     sendMessage={onSendMessageClick}
-//                     messagesPage={state.messagesPage}/>
-//                 }
-//             }
-//         </StoreContext.Consumer>
-//     )
-// }
 const mapStateToProps = (state) => {
     return {
         messagesPage: state.messagesPage,
