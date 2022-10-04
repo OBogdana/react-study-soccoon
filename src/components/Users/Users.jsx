@@ -3,19 +3,33 @@ import cs from "./Users.module.css"
 
 const Users = (props) => {
     return (
-        <div className={cs.box}>
+        <div>
             {
                 props.users.map(u => <div key={u.id}>
-                    <div>
-                        <img/>
+                    <div className={cs.box}>
+                        <div className={cs.userBox}>
+                            <div>
+                                <img src={u.ava} className={cs.ava}/>
+                            </div>
+                            <div>{u.fullName}</div>
+                            <div>
+                                {u.followed ? <button className={cs.buttonUnfollow} onClick={() => {
+                                        props.follow(u.id)
+                                    }}>Геть з пляжу</button> :
+                                    <button className={cs.buttonFollow} onClick={() => {
+                                        props.unfollow(u.id)
+                                    }}>Подати лапу</button>}
+                            </div>
+                        </div>
+
+                        <div className={cs.infoBox}>
+                            <div>
+                                {u.location.area}
+                            </div>
+
+                        </div>
                     </div>
-                    <div>
-                        {u.followed ? <button onClick={() => {props.follow(u.id)}}>UNFOLLOW</button> :
-                        <button onClick={() => {props.unfollow(u.id)}}>FOLLOW</button>}
-                    </div>
-                    <div>
-                        <h2>Info</h2>
-                    </div>
+
                 </div>)
             }
         </div>

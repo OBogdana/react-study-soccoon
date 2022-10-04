@@ -1,3 +1,53 @@
 .box{
     padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.userBox{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: #fdf9f3;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.infoBox{
+    margin: 5px;
+    padding: 7px;
+    width: 700px;
+    border-radius: 7px;
+    background-color: #fdf9f3;
+}
+
+.ava{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border-style: double;
+
+}
+
+.buttonFollow {
+    margin: 5px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: "Bookman Old Style";
+    color: #fdf9f3;
+    background-color: #940f4b;
+    border-color: #361a1a;
+}
+
+.buttonUnfollow{
+    margin: 5px;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: "Bookman Old Style";
+    color: #940f4b;
+    background-color: #f3e7d9;
+    border-color: #361a1a;
 }
