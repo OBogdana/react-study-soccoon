@@ -1,7 +1,14 @@
 import React from "react";
 import cs from "./Users.module.css"
+import * as axios from "axios";
 
 const Users = (props) => {
+    if (props.users.length === 0) {
+        axios.get("///").then(response => {
+            props.setUsers(response.data.items);
+        });
+    }
+
     return (
         <div>
             {
