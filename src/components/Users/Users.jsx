@@ -1,14 +1,20 @@
 import React from "react";
 import cs from "./Users.module.css"
-import * as axios from "axios";
+import axios from "axios";
 
 const Users = (props) => {
    let getUsers = () => {
-       if (props.users.length === 0) {
-           axios.get("").then(response => {
-               props.setUsers(response.data.items);
+       // if (props.users.length === 0) {
+           axios.get("http://localhost:3001/users").then(response => {
+               props.setUsers(response.data);
+               console.log(response.data)
            });
-       }
+           // fetch("http://localhost:3001/users").then(response => {
+           //     return response.json()
+           // }).then(body => {
+           //     console.log(body)
+           // })
+       // }
    }
 
     return (
