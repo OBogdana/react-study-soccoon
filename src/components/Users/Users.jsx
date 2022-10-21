@@ -1,15 +1,16 @@
 import React from "react";
 import cs from "./Users.module.css"
-import * as axios from "axios";
+import axios from "axios";
 
 const Users = (props) => {
-   let getUsers = () => {
-       if (props.users.length === 0) {
-           axios.get("").then(response => {
-               props.setUsers(response.data.items);
-           });
-       }
-   }
+    let getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get("http://localhost:3001/users").then(response => {
+                props.setUsers(response.data);
+                console.log(response.data)
+            });
+        }
+    }
 
     return (
         <div>
@@ -23,12 +24,14 @@ const Users = (props) => {
                             </div>
                             <div>{u.fullName}</div>
                             <div>
-                                {u.followed ? <button className={cs.buttonUnfollow} onClick={() => {
+                                {u.followed
+                                    ? <button onClick={() => {
                                         props.follow(u.id)
-                                    }}>Геть з пляжу</button> :
-                                    <button className={cs.buttonFollow} onClick={() => {
+                                    }} className={cs.buttonUnfollow}> Геть з пляжу </button>
+                                    : <button onClick={() => {
                                         props.unfollow(u.id)
-                                    }}>Подати лапу</button>}
+                                    }}>Подати лапу</button>
+                                }
                             </div>
                         </div>
 

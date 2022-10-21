@@ -1,0 +1,105 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "ava": "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",
+      "message": "AAAAAAAAAAAAAAAAAA-post",
+      "likeCount": 9
+    },
+    {
+      "id": 2,
+      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "message": "BBBBBBBBBBBBBBBBBB-post",
+      "likeCount": 3
+    },
+    {
+      "ava": "https://www.verbalbeginnings.com/wp-content/uploads/2021/06/fghjk.png",
+      "message": "gdfhghgf",
+      "likeCount": 0,
+      "id": 3
+    }
+  ],
+  "dialogs": [
+
+  ],
+  "users": [
+    {
+      "id": 1,
+      "followed": false,
+      "ava": "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",
+      "fullName": "R",
+      "location": {
+        "area": "forest"
+      }
+    },
+    {
+      "id": 2,
+      "followed": true,
+      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "fullName": "T",
+      "location": {
+        "area": "forest",
+        "tree": "oak"
+      }
+    },
+    {
+      "id": 3,
+      "followed": true,
+      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "fullName": "OF",
+      "location": {
+        "area": "forest",
+        "tree": "oak"
+      }
+    },
+    {
+      "id": 4,
+      "followed": false,
+      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "fullName": "G",
+      "location": {
+        "area": "field",
+        "tree": "oak"
+      }
+    },
+    {
+      "id": 5,
+      "followed": false,
+      "ava": "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",
+      "fullName": "R",
+      "location": {
+        "area": "forest"
+      }
+    },
+    {
+      "id": 6,
+      "followed": true,
+      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "fullName": "T",
+      "location": {
+        "area": "forest",
+        "tree": "oak"
+      }
+    },
+    {
+      "id": 7,
+      "followed": true,
+      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "fullName": "OF",
+      "location": {
+        "area": "forest",
+        "tree": "oak"
+      }
+    },
+    {
+      "id": 8,
+      "followed": false,
+      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "fullName": "G",
+      "location": {
+        "area": "field",
+        "tree": "oak"
+      }
+    }
+    ]
+}
