@@ -3,36 +3,7 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 
 let initialState = {
-    users: [
-        // {
-        //     id: 1,
-        //     followed: false,
-        //     ava: "https://cdn.meta.ua/meta_news/fa/01000ydd-fa29_1280x720.jpeg",
-        //     fullName: "R",
-        //     location: {area: "forest",}
-        // },
-        // {
-        //     id: 2,
-        //     followed: true,
-        //     ava: "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
-        //     fullName: "T",
-        //     location: {area: "forest", tree: "oak"},
-        // },
-        // {
-        //     id: 3,
-        //     followed: true,
-        //     ava: "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
-        //     fullName: "OF",
-        //     location: {area: "forest", tree: "oak"},
-        // },
-        // {
-        //     id: 4,
-        //     followed: false,
-        //     ava: "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
-        //     fullName: "G",
-        //     location: {area: "field", tree: "oak"},
-        // },
-    ],
+    users: [],
 };
 
 const usersReducer = (state = initialState, action) => {
