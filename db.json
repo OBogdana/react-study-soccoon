@@ -55,7 +55,7 @@
     {
       "id": 4,
       "followed": false,
-      "ava": "https://knowhow.pp.ua/wp-content/uploads/2020/05/unnamed-2.jpg",
+      "ava": null,
       "fullName": "G",
       "location": {
         "area": "field",
