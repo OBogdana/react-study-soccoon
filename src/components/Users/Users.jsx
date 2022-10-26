@@ -4,12 +4,11 @@ import axios from "axios";
 import Avatar from "../../image/Avatar.png";
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
+    componentDidMount() {
         axios.get("http://localhost:3001/users")
             .then(response => {
                 this.props.setUsers(response.data);
-                    });
+            });
     }
 
     render() {
@@ -35,7 +34,7 @@ class Users extends React.Component {
 
                             <div className={cs.infoBox}>
                                 <div>
-                                    {"u.location.area"}
+                                    {u.location.area}
                                 </div>
 
                             </div>
