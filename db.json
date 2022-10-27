@@ -101,5 +101,11 @@
         "tree": "oak"
       }
     }
-    ]
+    ],
+  "totalUsersCount": [
+    {
+      "count": 8
+    }
+
+  ]
 }

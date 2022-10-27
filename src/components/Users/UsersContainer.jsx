@@ -5,7 +5,8 @@ import {
     followActionCreator,
     setActivePageActionCreator,
     setUsersActionCreator,
-    unfollowActionCreator
+    unfollowActionCreator,
+    setTotalUsersCountActionCreator,
 } from "../../redux/usersReducer";
 
 const mapStateToProps = (state) => {
@@ -30,6 +31,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         setActivePage: (pageNumber) => {
             dispatch(setActivePageActionCreator(pageNumber))
+        },
+        setTotalUsersCount: (totalUsersCount) => {
+            dispatch(setTotalUsersCountActionCreator(totalUsersCount))
         },
 
     }
