@@ -5,22 +5,23 @@ import Avatar from "../../image/Avatar.png";
 
 class Users extends React.Component {
     componentDidMount() {
-        axios.get(`http://localhost:3001/users`)
+        axios.get(`http://localhost:3001/users?page=${this.props.activePage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data);
+                this.props.setTotalUsersCount(response.data.totalUsersCount);
             });
     }
 
-    onPageChanged(pageNumber) {
+    onPageChanged = (pageNumber) => {
         this.props.setActivePage(pageNumber);
-        axios.get(`http://localhost:3001/users`)
+        axios.get(`http://localhost:3001/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data);
             });
     }
 
     render() {
-        let pagesCount = Math.ceil(this.props.totalUsersCount/this.props.pageSize);
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
         let pages = [];
 
         for(let i=1; i<=pagesCount; i++) {
@@ -31,9 +32,8 @@ class Users extends React.Component {
             <div>
                 <div>
                     {pages.map( p => {
-                        return <button className={this.props.activePage === p && cs.selectedPage} onClick={(event) => {this.onPageChanged}}>{p}</button>
-                    })
-                    }
+                        return <button className={this.props.activePage === p && cs.selectedPage} onClick={(event) => {this.onPageChanged(p)}}>{p}</button>
+                    })}
                 </div>
 
                 {
