@@ -12,9 +12,9 @@ import {
 const mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
+        limit: state.usersPage.limit,
         totalUsersCount: state.usersPage.totalUsersCount,
-        activePage: state.usersPage.activePage,
+        page: state.usersPage.page,
     }
 }
 
@@ -29,8 +29,8 @@ const mapDispatchToProps = (dispatch) => {
         setUsers: (users) => {
             dispatch(setUsersActionCreator(users))
         },
-        setActivePage: (pageNumber) => {
-            dispatch(setActivePageActionCreator(pageNumber))
+        setActivePage: (page) => {
+            dispatch(setActivePageActionCreator(page))
         },
         setTotalUsersCount: (totalUsersCount) => {
             dispatch(setTotalUsersCountActionCreator(totalUsersCount))
