@@ -51,3 +51,8 @@
     background-color: #f3e7d9;
     border-color: #361a1a;
 }
+
+.selectedPage {
+    font-size: medium;
+    color: #361a1a;
+}
