@@ -15,19 +15,21 @@ import Preloader from "../common/Preloader/Preloader";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`http://localhost:3001/users?_page=3&_limit=2`)
+        axios.get(`http://localhost:3001/users?_page=1&_limit=3`)
             .then(response => {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data);
                 this.props.setTotalUsersCount(response.data.totalUsersCount);
+
             });
     }
 
     onPageChanged = (page) => {
         this.props.setActivePage(page);
         this.props.toggleIsFetching(true);
-        axios.get(`http://localhost:3001/users?_page=${page}&_limit=2`)
+        axios.get(`http://localhost:3001/users?_page=${page}&_limit=3`)
             .then(response => {
+
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data);
             });
@@ -88,6 +90,7 @@ export default connect(mapStateToProps, {
     setUsers,
     setActivePage,
     setTotalUsersCount,
-    toggleIsFetching
+    toggleIsFetching,
+
 })(UsersContainer);
 
