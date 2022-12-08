@@ -1,8 +1,10 @@
 import React from "react";
 import cs from "./Users.module.css";
 import Avatar from "../../image/Avatar.png";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
+    // debugger;
     let pagesCount = Math.ceil(props.totalUsersCount / props.limit);
     let pages = [];
 
@@ -25,7 +27,10 @@ const Users = (props) => {
                     <div className={cs.box}>
                         <div className={cs.userBox}>
                             <div>
-                                <img src={u.ava != null ? u.ava : Avatar} className={cs.ava}/>
+                                <NavLink to={"/profile/" + "users.id"}>
+                                    <img src={u.ava != null ? u.ava : Avatar} className={cs.ava}/>
+                                </NavLink>
+
                             </div>
                             <div>{u.fullName}</div>
                             <div>

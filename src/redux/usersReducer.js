@@ -7,10 +7,10 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
     users: [],
-    limit: 2,
-    totalUsersCount: 0,
+    limit: 3,
+    totalUsersCount: 8,
     page: 1,
-    isFetching: true,
+    isFetching: true
 };
 
 const usersReducer = (state = initialState, action) => {
