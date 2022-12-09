@@ -8,7 +8,11 @@ import {setUserProfile} from "../../redux/profileReducer";
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        axios.get(`http://localhost:3001/profile`)
+        let userId = this.props.match.params.id;
+        if(!userId) {
+            userId = 1;
+        }
+        axios.get(`http://localhost:3001/profile/` + userId)
             .then(response => {
                 this.props.setUserProfile(response.data);
             });
@@ -24,5 +28,7 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
 })
+
+//withRouter(ProfileContainer);(дослідити хуки і зробити)
 
 export default connect(mapStateToProps, {setUserProfile})(ProfileContainer);
